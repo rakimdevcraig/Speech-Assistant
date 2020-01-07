@@ -10,10 +10,15 @@
 //   console.error(`stderr: ${stderr}`);
 // });
 
-const { execFile } = require('child_process');
-const child = execFile('/Projects/node/nixandra/print.txt', (error, stdout, stderr) => {
+//Open safari
+exec('open /Applications/Safari.app', (error, stdout, stderr) => {
   if (error) {
-    throw error;
+    console.error(`exec error: ${error}`);
+    return;
   }
-  console.log(stdout);
+  console.log(`stdout: ${stdout}`);
+  console.error(`stderr: ${stderr}`);
 });
+
+// open /Applications/Safari.app
+
