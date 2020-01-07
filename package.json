@@ -13,6 +13,7 @@
     "@ibm-watson/speech-to-text-nodejs": "^2.9.0",
     "file-system": "^2.2.2",
     "ibm-watson": "^5.2.1",
-    "node-audiorecorder": "^1.4.2"
+    "node-audiorecorder": "^1.4.2",
+    "open": "^7.0.0"
   }
 }
