@@ -6,6 +6,7 @@ const SpeechToTextV1 = require('ibm-watson/speech-to-text/v1');
 const { IamAuthenticator } = require('ibm-watson/auth');
 const open = require('open');
 const { exec } = require('child_process');
+const textToSpeech = require("./textToSpeech.js")
 
 
 function record() {
@@ -74,12 +75,11 @@ function readRecording() {
             let audio = JSON.stringify(speechRecognitionResults.result.results[0].alternatives[0].transcript.toLowerCase(), null, 2)
             console.log(`words recorded: ${audio}`)
             if (audio.includes(`what is your name`)) {
-                console.log('boss')
+                textToSpeech("my name is boss")
             } else if (audio.includes(`date`)) {
                 console.log(new Date())
             } else if (audio.includes(`describe`)) {
-                console.log(`smart beautiful woman`)
-
+                textToSpeech(`nixandra is a smart beautiful woman`)
             }else if(audio.includes(`vs code`)){
                 exec('code .', (error, stdout, stderr) => {
                     if (error) {
