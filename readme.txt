@@ -1,3 +1,12 @@
+Things to do:
+break up the readrecording function and have all of the commands in 1 function separate from readrecording
+add in nicky's suggestions
+I want to find a way to log words into a file so I can go back and see the most used words for a time period
+find a better way to compare the audio instead of the includes()method
+add command for nfl/nba scores & twitter
+add in the functionality for the open command instead of using (code .) for vs code 
+
+
 Nicky's suggestions:
 who is the president?
 how many continents
@@ -23,6 +32,12 @@ voices available:
         "name": "en-US_AllisonV3Voice",
         "name": "en-US_MichaelVoice",
         "name": "en-US_MichaelV2Voice",
+
+features i have so far:
+used mp3's I saved in to respond to certain commands
+ability to tell the weather
+ability to open programs up
+ability to navigate to certain websites
 
 
 
