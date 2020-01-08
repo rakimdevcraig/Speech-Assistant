@@ -1,3 +1,31 @@
+Nicky's suggestions:
+who is the president?
+how many continents
+largest mammal?
+how many teeth does the adult human have?
+As of 2020,how many rings does tom brady have?
+who is better mj or lbj?
+in 2010, to which city did lebron james take his talents? play clip of lbj saying miami
+who is the richest man in the world?
+how much wood would a woodchuck chuck if a woodchuck would chuck wood?
+
+
+voices available:
+        "name": "en-US_LisaV2Voice",
+        "name": "en-GB_KateV3Voice",
+        "name": "en-US_MichaelV3Voice",
+        "name": "en-US_LisaV3Voice",
+        "name": "en-US_AllisonV2Voice",
+        "name": "en-US_LisaVoice",
+        "name": "en-US_AllisonVoice", DEFAULT
+        "name": "es-ES_LauraV3Voice",
+        "name": "es-US_SofiaV3Voice",
+        "name": "en-US_AllisonV3Voice",
+        "name": "en-US_MichaelVoice",
+        "name": "en-US_MichaelV2Voice",
+
+
+
 control flow: making sure I don't call readrecording function until the audio is 
 actually received line 50-54 before that I was using settimeout which isn't the best way, 
 I was tripped up on that also I was tripped up on how to get the audio to transcribe before 

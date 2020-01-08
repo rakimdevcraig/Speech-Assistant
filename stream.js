@@ -14,9 +14,6 @@ const weather = require('weather-js');
 
 
 function record() {
-
-
-
     // Options is an optional parameter for the constructor call.
     // If an option is not given the default value, as seen below, will be used.
     const options = {
@@ -79,43 +76,45 @@ function readRecording() {
             let audio = JSON.stringify(speechRecognitionResults.result.results[0].alternatives[0].transcript.toLowerCase(), null, 2)
             console.log(`words recorded: ${audio}`)
             if (audio.includes(`what it do`)) {
-                player.play({path: './audio/kawhi.wav',})
-            }if (audio.includes(`skip`)) {
-                player.play({path: './audio/dripbayless.wav',})
-            }if (audio.includes(`what is your name`)) {
+                player.play({ path: './audio/kawhi.wav', })
+            } if (audio.includes(`skip`)) {
+                player.play({ path: './audio/dripbayless.wav', })
+            } if (audio.includes(`what is your name`)) {
                 textToSpeech("my name is boss")
             } else if (audio.includes(`date`)) {
-                let date =`the current date and time is ${dateFormat(now, "dddd, mmmm dS, yyyy, h:MM TT")}`;
+                let date = `the current date and time is ${dateFormat(now, "dddd, mmmm dS, yyyy, h:MM TT")}`;
                 textToSpeech(date)
             } else if (audio.includes(`describe`)) {
                 textToSpeech(`nixandra is a smart beautiful woman`)
             } else if (audio.includes(`what is my father's name`)) {
                 textToSpeech(`his name is keith`)
-            }else if(audio.includes(`mark`)){
+            } else if (audio.includes(`mark`)) {
                 textToSpeech('mark, thanks for being a great mentor to me')
-            }else if(audio.includes(`vs code`)){
+            } else if (audio.includes(`vs code`)) {
                 exec('code .', (error, stdout, stderr) => {
                     if (error) {
-                      console.error(`exec error: ${error}`);
-                      return;
+                        console.error(`exec error: ${error}`);
+                        return;
                     }
                     console.log(`stdout: ${stdout}`);
                     console.error(`stderr: ${stderr}`);
-                  });
-            }else if(audio.includes(`chrome`)){
+                });
+            } else if (audio.includes(`chrome`)) {
                 open('https://google.com')
-            }else if(audio.includes(`whether`)){
-                weather.find({search: 'Boston, MA', degreeType: 'F'}, function(err, result) {
-                    if(err) console.log(err);                
+            }else if (audio.includes(`email`)) {
+                open('https://mail.google.com/mail/u/0/?tab=wm&ogbl#inbox')
+            }else if (audio.includes(`whether`)) {
+                weather.find({ search: 'Boston, MA', degreeType: 'F' }, function (err, result) {
+                    if (err) console.log(err);
                     let temp = JSON.stringify(result[0].current.temperature, null, 2)
                     let description = JSON.stringify(result[0].current.skytext, null, 2)
                     textToSpeech(`In Boston it is currently ${description} and it is ${temp} degrees`)
-                  });
-            }else if(audio.includes(`youtube`)){
+                });
+            } else if (audio.includes(`youtube`)) {
                 open('https://www.youtube.com')
             }
             else {
-                // textToSpeech(`Didn't understand that please try again`)
+                // textToSpeech(`${audio}`)
             }
         })
         .catch(err => {

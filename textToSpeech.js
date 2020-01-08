@@ -11,7 +11,7 @@ function textToSpeech(words) {
   });
   const params = {
     text: words,
-    voice: 'en-US_AllisonVoice', // Optional voice
+    voice: 'en-US_LisaV2Voice', // Optional voice
     accept: 'audio/wav'
   };
 
