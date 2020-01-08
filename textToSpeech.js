@@ -26,12 +26,14 @@ function textToSpeech(words) {
       return textToSpeech.repairWavHeaderStream(audio);
     })
     .then(repairedFile => {
-      fs.writeFileSync('audio.wav', repairedFile);
-      console.log('audio.wav written with a corrected wav header');
+      fs.writeFileSync('./audio/audio.wav', repairedFile);
+      // for debugging lets me know when the file has been written
+      // console.log('audio.wav written with a corrected wav header');
       player.play({
-        path: './audio.wav',
+        path: './audio/audio.wav',
       }).then(() => {
-        console.log('The wav file started to be played successfully.');
+        //for debugging lets me know the file started to be played
+        // console.log('The wav file started to be played successfully.');
       }).catch((error) => {
         console.error(error);
       });

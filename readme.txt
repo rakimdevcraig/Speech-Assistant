@@ -15,3 +15,9 @@ how to open chrome or other programs from your computer. js was made for the web
 something I would've learned if I didn't branch out
 
 separating code I didn't need the textToSpeech code to be in the same file as the rest of the stuff
+
+could've had a bunch of mp3's and one for each question but that would make my project bigger instead I can just 
+rewrite to the same mp3 and output what I wrote to the mp3 if the api ends up messing up down the line or if
+IBM tries to charge me I can go the route of having prerecorded mp3's but for now I don't need that. with
+prerecorded mp3's my app will run faster because I won't have to deal with the api converting text to speech before
+the app responds it will just go to the prerecorded file

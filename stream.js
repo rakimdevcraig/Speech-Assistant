@@ -7,6 +7,10 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 const open = require('open');
 const { exec } = require('child_process');
 const textToSpeech = require("./textToSpeech.js")
+const dateFormat = require('dateformat');
+const player = require('node-wav-player');
+const weather = require('weather-js');
+
 
 
 function record() {
@@ -42,14 +46,14 @@ function record() {
     audioRecorder.start();
 
 
-    const fileStream = fs.createWriteStream("./test.wav", { encoding: 'binary' });
+    const fileStream = fs.createWriteStream("./audio/test.wav", { encoding: 'binary' });
 
     //Create another stream to save locally
     audioRecorder.stream().pipe(fileStream);
 
     //check to see when the recording is done
     audioRecorder.stream().on('close', function (code) {
-        console.warn('Recording closed. Exit code: ', code);
+        // console.warn('Recording closed. Exit code: ', code);
         readRecording()
     });
 
@@ -58,7 +62,7 @@ function record() {
 
 
 function readRecording() {
-
+    const now = new Date();
 
     const speechToText = new SpeechToTextV1({
         authenticator: new IamAuthenticator({ apikey: '77Xg16ZrxyJezMAIhwES_YVOMvhB__3dQbGOnGpyMeef' }),
@@ -66,7 +70,7 @@ function readRecording() {
     });
 
     const recognizeParams = {
-        audio: fs.createReadStream('test.wav'),
+        audio: fs.createReadStream('./audio/test.wav'),
         contentType: 'audio/wav',
     };
 
@@ -74,12 +78,21 @@ function readRecording() {
         .then(speechRecognitionResults => {
             let audio = JSON.stringify(speechRecognitionResults.result.results[0].alternatives[0].transcript.toLowerCase(), null, 2)
             console.log(`words recorded: ${audio}`)
-            if (audio.includes(`what is your name`)) {
+            if (audio.includes(`what it do`)) {
+                player.play({path: './audio/kawhi.wav',})
+            }if (audio.includes(`skip`)) {
+                player.play({path: './audio/dripbayless.wav',})
+            }if (audio.includes(`what is your name`)) {
                 textToSpeech("my name is boss")
             } else if (audio.includes(`date`)) {
-                console.log(new Date())
+                let date =`the current date and time is ${dateFormat(now, "dddd, mmmm dS, yyyy, h:MM TT")}`;
+                textToSpeech(date)
             } else if (audio.includes(`describe`)) {
                 textToSpeech(`nixandra is a smart beautiful woman`)
+            } else if (audio.includes(`what is my father's name`)) {
+                textToSpeech(`his name is keith`)
+            }else if(audio.includes(`mark`)){
+                textToSpeech('mark, thanks for being a great mentor to me')
             }else if(audio.includes(`vs code`)){
                 exec('code .', (error, stdout, stderr) => {
                     if (error) {
@@ -92,12 +105,17 @@ function readRecording() {
             }else if(audio.includes(`chrome`)){
                 open('https://google.com')
             }else if(audio.includes(`whether`)){
-                open('https://www.google.com/search?q=boston+weather&oq=boston+weather&aqs=chrome..69i57j0l5j69i60l2.1872j1j4&sourceid=chrome&ie=UTF-8')
+                weather.find({search: 'Boston, MA', degreeType: 'F'}, function(err, result) {
+                    if(err) console.log(err);                
+                    let temp = JSON.stringify(result[0].current.temperature, null, 2)
+                    let description = JSON.stringify(result[0].current.skytext, null, 2)
+                    textToSpeech(`In Boston it is currently ${description} and it is ${temp} degrees`)
+                  });
             }else if(audio.includes(`youtube`)){
                 open('https://www.youtube.com')
             }
             else {
-                // console.log(`Didn't understand that please try again`)
+                // textToSpeech(`Didn't understand that please try again`)
             }
         })
         .catch(err => {
