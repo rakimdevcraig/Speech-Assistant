@@ -9,11 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@google-cloud/speech": "^3.5.3",
-    "@google-cloud/text-to-speech": "^2.1.2",
     "@ibm-watson/speech-to-text-nodejs": "^2.9.0",
     "@ibm-watson/text-to-speech-nodejs": "^1.3.0",
-    "date": "^1.0.2",
     "dateformat": "^3.0.3",
     "file-system": "^2.2.2",
     "format": "^0.2.2",

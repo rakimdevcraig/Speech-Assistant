@@ -42,7 +42,6 @@ function record() {
 
     audioRecorder.start();
 
-
     const fileStream = fs.createWriteStream("./audio/test.wav", { encoding: 'binary' });
 
     //Create another stream to save locally
@@ -77,9 +76,9 @@ function readRecording() {
             console.log(`words recorded: ${audio}`)
             if (audio.includes(`what it do`)) {
                 player.play({ path: './audio/kawhi.wav', })
-            } if (audio.includes(`skip`)) {
+            } else if (audio.includes(`skip`)) {
                 player.play({ path: './audio/dripbayless.wav', })
-            } if (audio.includes(`what is your name`)) {
+            } else if (audio.includes(`what is your name`)) {
                 textToSpeech("my name is boss")
             } else if (audio.includes(`date`)) {
                 let date = `the current date and time is ${dateFormat(now, "dddd, mmmm dS, yyyy, h:MM TT")}`;
@@ -101,9 +100,9 @@ function readRecording() {
                 });
             } else if (audio.includes(`chrome`)) {
                 open('https://google.com')
-            }else if (audio.includes(`email`)) {
+            } else if (audio.includes(`email`)) {
                 open('https://mail.google.com/mail/u/0/?tab=wm&ogbl#inbox')
-            }else if (audio.includes(`whether`)) {
+            } else if (audio.includes(`whether`)) {
                 weather.find({ search: 'Boston, MA', degreeType: 'F' }, function (err, result) {
                     if (err) console.log(err);
                     let temp = JSON.stringify(result[0].current.temperature, null, 2)
@@ -112,15 +111,20 @@ function readRecording() {
                 });
             } else if (audio.includes(`youtube`)) {
                 open('https://www.youtube.com')
-            }
-            else {
+            } else if (audio.includes(`who is the president`)) {
+                textToSpeech('Donald Trump is the president')
+            } else if (audio.includes(`how many continents`)) {
+                textToSpeech('There are seven continents')
+            } else if (audio.includes(`largest mammal?`)) {
+                textToSpeech('Blue Whale is the largest mammal')
+            } else if (audio.includes(`how many rings does tom brady have`)) {
+                textToSpeech('Six')
+            } else {
                 // textToSpeech(`${audio}`)
             }
         })
         .catch(err => {
             console.log('error:', err);
         });
-
-
 }
 record()

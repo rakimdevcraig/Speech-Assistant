@@ -7,16 +7,7 @@ add command for nfl/nba scores & twitter
 add in the functionality for the open command instead of using (code .) for vs code 
 
 
-Nicky's suggestions:
-who is the president?
-how many continents
-largest mammal?
-how many teeth does the adult human have?
-As of 2020,how many rings does tom brady have?
-who is better mj or lbj?
-in 2010, to which city did lebron james take his talents? play clip of lbj saying miami
-who is the richest man in the world?
-how much wood would a woodchuck chuck if a woodchuck would chuck wood?
+
 
 
 voices available:
