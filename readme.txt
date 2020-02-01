@@ -1,15 +1,38 @@
-Things to do:
-break up the readrecording function and have all of the commands in 1 function separate from readrecording
-add in nicky's suggestions
-I want to find a way to log words into a file so I can go back and see the most used words for a time period
-find a better way to compare the audio instead of the includes()method
-add command for nfl/nba scores & twitter
-add in the functionality for the open command instead of using (code .) for vs code 
+Installation:
+Clone
+Run npm install
+In terminal navigate to project folder and type node stream.js
 
+Description: 
+Node app that listens for a command or question and adds it to a voice file, I then send that voice file to an IBM API that converts the speech to text, with that text I have a list of questions and commands that the computer will respond to, if the user asked a question or says a command that is in the list then the computer responds to a command by doing the command but if it's a question I have answers that are text strings and I send the text to an IBM API that converts the text to speech and creates a WAV file that is the audio representation of that question, once created the WAV file will automatically playback to the user.
 
+Features:
+Ability to tell the date & weather
+Ability to open programs up (VScode, Google Chrome)
+Ability to navigate to certain websites (Youtube, Gmail)
+Ability to answer some general questions as well such as largest mammal
+Some questions will trigger playback of an WAV file 
 
+What I've learned:
+How to actually use ur computer mic as a recorder
 
+How to open chrome or other programs from your computer. Being a web developer I never would try and trigger programs opening up aside from actually clicking them to open them up I didn't know other ways were possible.
 
+Control flow:For awhile I was trying to convert the wav file to speech before the api received it. So I had to add a check to make sure the recording was completed and that file was created before I sent it off to the API that would convert the speech-to-text
+
+Project Design: At first I was going to store the answer to each question in an WAV file and when that question was asked just trigger playback of the WAV file. This would leave me with a bunch of WAV's and make my project bigger and would be annoying to make an WAV everytime I would like to add an answer to a question. Instead I converted my answer to a voice file via an IBM API and play that file in response to the question. That way it's very easy to add more questions and answers. I realize that since I'm using IBM i'm at the mercy of their API and if they decide to change something down the line and charge me then I'll have a problem but for now I'm happy with my solution as the API is fast and free of charge.
+
+Deeper node things:
+node filesystem,read/write stream and piping data
+exec child process
+
+Improvements I would like to make:
+Break up the readrecording function and have all of the commands in 1 function separate from readrecording.
+I want to find a way to log words into a file so I can go back and see the most used words for a time period(most common question asked per month, week etc).
+Find a better way to compare the audio instead of the includes()method.
+Add command for nfl/nba scores & twitter.
+Add in the functionality for the open command instead of using (code .) for vs code.
+Change the voice
 voices available:
         "name": "en-US_LisaV2Voice",
         "name": "en-GB_KateV3Voice",
@@ -23,35 +46,3 @@ voices available:
         "name": "en-US_AllisonV3Voice",
         "name": "en-US_MichaelVoice",
         "name": "en-US_MichaelV2Voice",
-
-features i have so far:
-used mp3's I saved in to respond to certain commands
-ability to tell the weather
-ability to open programs up
-ability to navigate to certain websites
-
-
-
-control flow: making sure I don't call readrecording function until the audio is 
-actually received line 50-54 before that I was using settimeout which isn't the best way, 
-I was tripped up on that also I was tripped up on how to get the audio to transcribe before 
-being played in the text to speech but it was easier after the first issue
-
-functions can really be passed around from one file to the next I had read it but I never really put it to use
-
-how to actually use ur computer mic as a recorder
-
-deeper node things:
-node filesystem,read/write stream and piping data
-exec child process
-
-how to open chrome or other programs from your computer. js was made for the web so this wasn't
-something I would've learned if I didn't branch out
-
-separating code I didn't need the textToSpeech code to be in the same file as the rest of the stuff
-
-could've had a bunch of mp3's and one for each question but that would make my project bigger instead I can just 
-rewrite to the same mp3 and output what I wrote to the mp3 if the api ends up messing up down the line or if
-IBM tries to charge me I can go the route of having prerecorded mp3's but for now I don't need that. with
-prerecorded mp3's my app will run faster because I won't have to deal with the api converting text to speech before
-the app responds it will just go to the prerecorded file
