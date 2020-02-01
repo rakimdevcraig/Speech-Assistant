@@ -46,3 +46,7 @@ voices available:
         "name": "en-US_AllisonV3Voice",
         "name": "en-US_MichaelVoice",
         "name": "en-US_MichaelV2Voice",
+<<<<<<< HEAD
+=======
+
+>>>>>>> e773b862f1350a9fa524a4dde27412783290a9fd
