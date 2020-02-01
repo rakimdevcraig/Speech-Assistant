@@ -1,3 +1,9 @@
+Installation:
+Clone
+Run npm install
+In terminal navigate to project folder and type node stream.js
+
+
 Things to do:
 break up the readrecording function and have all of the commands in 1 function separate from readrecording
 add in nicky's suggestions
