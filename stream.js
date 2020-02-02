@@ -122,7 +122,7 @@ function readRecording() {
             } else if (audio.includes(`who is joseph`)) {
                 textToSpeech('scared of the real man')
             } else {
-                // textToSpeech(`${audio}`)
+                // textToSpeech(`I didn't quite understand please try again`)
             }
         })
         .catch(err => {
