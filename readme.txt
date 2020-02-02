@@ -1,7 +1,9 @@
 Installation:
 Clone
 Run npm install
+Run brew install sox
 In terminal navigate to project folder and type node stream.js
+
 
 Description: 
 Node app that listens for a command or question and adds it to a voice file, I then send that voice file to an IBM API that converts the speech to text, with that text I have a list of questions and commands that the computer will respond to, if the user asked a question or says a command that is in the list then the computer responds to a command by doing the command but if it's a question I have answers that are text strings and I send the text to an IBM API that converts the text to speech and creates a WAV file that is the audio representation of that question, once created the WAV file will automatically playback to the user.
@@ -46,7 +48,3 @@ voices available:
         "name": "en-US_AllisonV3Voice",
         "name": "en-US_MichaelVoice",
         "name": "en-US_MichaelV2Voice",
-<<<<<<< HEAD
-=======
-
->>>>>>> e773b862f1350a9fa524a4dde27412783290a9fd

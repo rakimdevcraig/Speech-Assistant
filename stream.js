@@ -119,6 +119,8 @@ function readRecording() {
                 textToSpeech('Blue Whale is the largest mammal')
             } else if (audio.includes(`how many rings does tom brady have`)) {
                 textToSpeech('Six')
+            } else if (audio.includes(`who is joseph`)) {
+                textToSpeech('scared of the real man')
             } else {
                 // textToSpeech(`${audio}`)
             }
