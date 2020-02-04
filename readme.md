@@ -1,7 +1,7 @@
 Installation:
 Clone,
-Run "npm install"
-Run "brew install sox"
+Run "npm install",
+Run "brew install sox",
 In terminal navigate to project folder and type "node stream.js"
 
 
@@ -35,16 +35,3 @@ Find a better way to compare the audio instead of the includes()method.
 Add command for nfl/nba scores & twitter.
 Add in the functionality for the open command instead of using (code .) for vs code.
 Change the voice
-voices available:
-        "name": "en-US_LisaV2Voice",
-        "name": "en-GB_KateV3Voice",
-        "name": "en-US_MichaelV3Voice",
-        "name": "en-US_LisaV3Voice",
-        "name": "en-US_AllisonV2Voice",
-        "name": "en-US_LisaVoice",
-        "name": "en-US_AllisonVoice", DEFAULT
-        "name": "es-ES_LauraV3Voice",
-        "name": "es-US_SofiaV3Voice",
-        "name": "en-US_AllisonV3Voice",
-        "name": "en-US_MichaelVoice",
-        "name": "en-US_MichaelV2Voice",
