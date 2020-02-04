@@ -1,8 +1,8 @@
 Installation:
-Clone
-Run npm install
-Run brew install sox
-In terminal navigate to project folder and type node stream.js
+Clone,
+Run "npm install"
+Run "brew install sox"
+In terminal navigate to project folder and type "node stream.js"
 
 
 Description: 
